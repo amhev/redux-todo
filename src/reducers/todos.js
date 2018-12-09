@@ -2,6 +2,7 @@ const todos = (state = [], action) => {
   switch (action.type) {
     case "ADD_TODO":
       return [
+        ...state,
         {
           id: action.id,
           text: action.text,
@@ -9,8 +10,7 @@ const todos = (state = [], action) => {
           starred: false,
           completed: false,
           editing: false
-        },
-        ...state
+        }
       ];
     case "REMOVE_TODO":
       return state.filter(todo => todo.id !== action.id);
