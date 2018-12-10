@@ -270,7 +270,7 @@
   }
 
   .todo-filter.all:hover, .todo-filter.all.active {
-    background-color: #4a6263;
+    background-color: #69888a;
     color: white;
   }
 
