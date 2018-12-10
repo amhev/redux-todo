@@ -7,6 +7,7 @@ const AddTodo = props => {
   return (
     <div className="add-todo">
       <span
+        title="Add todo"
         className="add-todo__icon"
         onClick={() => {
           if (input.value.trim()) {

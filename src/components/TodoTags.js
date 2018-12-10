@@ -10,6 +10,7 @@ const TodoTags = ({
   <div className="list-item-tags">
     {important && (
       <span
+        title="Important"
         className="list-item-tag important"
         onClick={() => onImportantChange(id)}
       >
@@ -18,6 +19,7 @@ const TodoTags = ({
     )}
     {starred && (
       <span
+        title="Favorite"
         className="list-item-tag starred"
         onClick={() => onStarredChange(id)}
       >

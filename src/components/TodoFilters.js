@@ -44,7 +44,7 @@ const TodoFilters = props =>
         <TodoFilter
           filter={Filters.STARRED}
           count={props.starred}
-          name="Starred"
+          name="Favorite"
           className="todo-filter starred"
         />
         <TodosClearCompleted />

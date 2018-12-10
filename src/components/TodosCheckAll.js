@@ -7,7 +7,7 @@ const TodosCheckAll = props => (
   <React.Fragment>
     {props.open ? (
       <div className="todo-check-all" onClick={() => props.checkAllTodos(true)}>
-        <span className="todo-check-all__icon circle">
+        <span title="Check all" className="todo-check-all__icon circle">
           <i className="far fa-circle" />
         </span>
       </div>
@@ -17,7 +17,7 @@ const TodosCheckAll = props => (
         className="todo-check-all"
         onClick={() => props.checkAllTodos(false)}
       >
-        <span className="todo-check-all__icon checked">
+        <span title="Uncheck all" className="todo-check-all__icon checked">
           <i className="far fa-check-circle" />
         </span>
       </div>

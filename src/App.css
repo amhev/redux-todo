@@ -236,8 +236,9 @@
 }
 
  .todo-check-all{
-    width: 30px;
     position: relative;
+    width: 30px;
+    cursor: pointer;
  }
 
  .todo-check-all__icon {
