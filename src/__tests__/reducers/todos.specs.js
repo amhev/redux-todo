@@ -14,13 +14,14 @@ describe("ADD_TODO", () => {
   test("should add a todo at the end of the todo list", () => {
     const action = { type: "ADD_TODO", text: "some_text" };
     const newState = todosReducer(mockedState.getState(), action);
+    const newTodo = newState[newState.length - 1];
 
     expect(newState).toHaveLength(4);
-    expect(newState[3].text).toEqual("some_text");
-    expect(newState[3].important).toBe(false);
-    expect(newState[3].starred).toBe(false);
-    expect(newState[3].completed).toBe(false);
-    expect(newState[3].editing).toBe(false);
+    expect(newTodo.text).toEqual("some_text");
+    expect(newTodo.important).toBe(false);
+    expect(newTodo.starred).toBe(false);
+    expect(newTodo.completed).toBe(false);
+    expect(newTodo.editing).toBe(false);
   });
 });
 
@@ -28,10 +29,7 @@ describe("REMOVE_TODO", () => {
   test("should remove a todo from the todo list", () => {
     const action = { type: "REMOVE_TODO", id: 2 };
     const newState = todosReducer(mockedState.getState(), action);
-
-    expect(newState).toHaveLength(2);
-    expect(newState[0].id).toEqual(1);
-    expect(newState[1].id).toBe(3);
+    expect(newState.find(x => x.id === 2)).toBe(undefined);
   });
 });
 
@@ -40,7 +38,7 @@ describe("TOGGLE_TODO", () => {
     const action = { type: "TOGGLE_TODO", id: 2 };
     const newState = todosReducer(mockedState.getState(), action);
 
-    expect(newState[1].completed).toBe(true);
+    expect(newState.find(x => x.id === 2).completed).toBe(true);
   });
 
   test("should not toggle all todos complete property", () => {
@@ -56,7 +54,7 @@ describe("TOGGLE_IMPORTANT_TODO", () => {
     const action = { type: "TOGGLE_IMPORTANT_TODO", id: 3 };
     const newState = todosReducer(mockedState.getState(), action);
 
-    expect(newState[2].important).toBe(false);
+    expect(newState.find(x => x.id === 3).important).toBe(false);
   });
 
   test("should not toggle all todos important property", () => {
@@ -72,7 +70,7 @@ describe("TOGGLE_STARRED_TODO", () => {
     const action = { type: "TOGGLE_STARRED_TODO", id: 1 };
     const newState = todosReducer(mockedState.getState(), action);
 
-    expect(newState[2].starred).toBe(true);
+    expect(newState.find(x => x.id === 1).starred).toBe(true);
   });
 
   test("should not toggle all todos starred property", () => {
@@ -120,7 +118,7 @@ describe("START_EDIT_TODO", () => {
     const action = { type: "START_EDIT_TODO", id: 1 };
     const newState = todosReducer(mockedState.getState(), action);
 
-    expect(newState[0].editing).toBe(true);
+    expect(newState.find(x => x.id === 1).editing).toBe(true);
   });
 });
 
@@ -129,7 +127,7 @@ describe("CANCEL_EDIT_TODO", () => {
     const action = { type: "CANCEL_EDIT_TODO", id: 1 };
     const newState = todosReducer(mockedState.getState(), action);
 
-    expect(newState[0].editing).toBe(false);
+    expect(newState.find(x => x.id === 1).editing).toBe(false);
   });
 });
 
@@ -138,13 +136,20 @@ describe("EDIT_TODO", () => {
     const action = { type: "EDIT_TODO", id: 1, value: "" };
     const newState = todosReducer(mockedState.getState(), action);
 
-    expect(newState[0].text === "").toBe(false);
+    expect(newState.find(x => x.id === 1).text === "").toBe(false);
   });
 
   test("should update todo with none string", () => {
     const action = { type: "EDIT_TODO", id: 1, value: "new text" };
     const newState = todosReducer(mockedState.getState(), action);
 
-    expect(newState[0].text === "new text").toBe(true);
+    expect(newState.find(x => x.id === 1).text === "new text").toBe(true);
+  });
+
+  test("should set editing property to false", () => {
+    const action = { type: "EDIT_TODO", id: 1, value: "new text" };
+    const newState = todosReducer(mockedState.getState(), action);
+
+    expect(newState.find(x => x.id === 1).editing).toBe(false);
   });
 });
