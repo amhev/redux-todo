@@ -4,12 +4,12 @@
 
   html,
   body {
-    font: 14px 'Lato', sans-serif;
+    font: 16px 'Lato', sans-serif;
     line-height: 1.4em;
     background: #f5f5f5;
     color: #4d4d4d;
     min-width: 230px;
-    max-width: 550px;
+    max-width: 750px;
     margin: 0 auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -229,6 +229,12 @@
   margin-left: 10px;
 } 
 
+.todo-filter__count {
+  font-size: 14px;
+  color: gray;
+  font-weight: 300;
+}
+
  .todo-check-all{
     width: 30px;
     position: relative;
@@ -254,25 +260,34 @@
     transition: background-color 0.2s ease-out;
     margin: 3px;
     padding: 3px 7px;
-    border: 1px solid;
+    border: 1px solid #c4cdce;
     border-radius: 3px;
   }
   .todo-filter.active {
     font-weight: bold;
+    border-color: #4a6263 !important;
   }
 
   .todo-filter.all:hover, .todo-filter.all.active {
     background-color: #4a6263;
     color: white;
   }
+
+  .todo-filter.all .todo-filter__count {
+    color: inherit;
+  }
+
   .todo-filter.open {
+    border-color: #c4e6fc;
     background-color: #edf8ff;
-  } 
+  }
+  
   .todo-filter.open:hover, .todo-filter.open.active {
     background-color: #4AA1D8;
   } 
 
   .todo-filter.completed {
+    border-color: #cbfbea;
     background-color: #f4fffb;
   }
   
@@ -282,12 +297,14 @@
 
   .todo-filter.important {
     background-color: #fff4f4;
+    border-color: #f9d4d4;
   }
 
   .todo-filter.important:hover, .todo-filter.important.active {
     background-color: red;
   }
   .todo-filter.starred {
+    border-color: #fdebb8;
     background-color: #fffcf4;
   }
 
@@ -297,7 +314,7 @@
 
   .todo-clear-completed {
     margin-left: auto;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
   }
 
