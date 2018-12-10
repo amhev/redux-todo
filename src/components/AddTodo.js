@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../actions";
 
-const AddTodo = ({ dispatch }) => {
+const AddTodo = props => {
   let input;
   return (
     <div className="add-todo">
@@ -10,7 +10,7 @@ const AddTodo = ({ dispatch }) => {
         className="add-todo__icon"
         onClick={() => {
           if (input.value.trim()) {
-            dispatch(addTodo(input.value.trim()));
+            props.addTodo(input.value.trim());
             input.value = "";
           } else {
             return;
@@ -25,7 +25,7 @@ const AddTodo = ({ dispatch }) => {
         ref={node => (input = node)}
         onKeyUp={event => {
           if (event.key === "Enter" && event.target.value.trim()) {
-            dispatch(addTodo(event.target.value.trim()));
+            props.addTodo(event.target.value.trim());
             event.target.value = "";
           } else {
             return;
@@ -36,4 +36,11 @@ const AddTodo = ({ dispatch }) => {
   );
 };
 
-export default connect()(AddTodo);
+const mapDispatchToProps = (dispatch, props) => ({
+  addTodo: text => dispatch(addTodo(text))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AddTodo);
