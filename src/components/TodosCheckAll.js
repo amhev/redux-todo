@@ -1,18 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { toggleTodos } from "../actions";
-import { getRemainingState } from "../selectors";
+import { getOpenState } from "../selectors";
 
 const TodosCheckAll = props => (
   <React.Fragment>
-    {props.remaining ? (
+    {props.open ? (
       <div className="todo-check-all" onClick={() => props.checkAllTodos(true)}>
         <span className="todo-check-all__icon circle">
           <i className="far fa-circle" />
         </span>
       </div>
     ) : null}
-    {!props.remaining ? (
+    {!props.open ? (
       <div
         className="todo-check-all"
         onClick={() => props.checkAllTodos(false)}
@@ -26,7 +26,7 @@ const TodosCheckAll = props => (
 );
 
 const mapStateToProps = state => ({
-  remaining: getRemainingState(state)
+  open: getOpenState(state)
 });
 const mapDispatchToProps = dispatch => ({
   checkAllTodos: value => dispatch(toggleTodos(value))

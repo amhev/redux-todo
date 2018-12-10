@@ -4,7 +4,7 @@ const todos = (state = [], action) => {
       return [
         ...state,
         {
-          id: action.id,
+          id: new Date().valueOf(),
           text: action.text,
           important: false,
           starred: false,

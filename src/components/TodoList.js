@@ -3,11 +3,7 @@ import { connect } from "react-redux";
 import TodoItem from "./TodoItem";
 import { getTodosState } from "../selectors";
 
-const mapStateToProps = state => ({
-  todos: getTodosState(state)
-});
-
-const TodoList = ({ todos, toggleTodo }) => {
+const TodoList = ({ todos }) => {
   return (
     <div className="list">
       {todos.map(todo => (
@@ -16,4 +12,9 @@ const TodoList = ({ todos, toggleTodo }) => {
     </div>
   );
 };
+
+const mapStateToProps = state => ({
+  todos: getTodosState(state)
+});
+
 export default connect(mapStateToProps)(TodoList);

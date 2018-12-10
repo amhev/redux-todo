@@ -1,11 +1,11 @@
 import { createSelector } from "reselect";
 import { Filters } from "../actions";
-const getRemaining = state =>
-  state.todos.filter(todo => !todo.completed).length;
 
-export const getRemainingState = createSelector(
-  [getRemaining],
-  remaining => remaining
+const getTotal = state => state.todos.length;
+
+export const getTotalState = createSelector(
+  [getTotal],
+  total => total
 );
 
 const getCompleted = state => state.todos.filter(todo => todo.completed).length;
@@ -15,11 +15,25 @@ export const getCompletedState = createSelector(
   completed => completed
 );
 
-const getTotal = state => state.todos.length;
+const getOpen = state => state.todos.filter(todo => !todo.completed).length;
 
-export const getTotalState = createSelector(
-  [getTotal],
-  total => total
+export const getOpenState = createSelector(
+  [getOpen],
+  open => open
+);
+
+const getImportant = state => state.todos.filter(todo => todo.important).length;
+
+export const getImportantState = createSelector(
+  [getImportant],
+  important => important
+);
+
+const getStarred = state => state.todos.filter(todo => todo.starred).length;
+
+export const getStarredState = createSelector(
+  [getStarred],
+  starred => starred
 );
 
 const getTodos = state => {

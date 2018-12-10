@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { toggleTodos } from "../actions";
-import { getRemainingState } from "../selectors";
-import { getTotalState } from "../selectors";
-import { getCompletedState } from "../selectors";
+import { getTotalState, getCompletedState } from "../selectors";
 
 const TodosStatus = props => {
   const completedPrecent = Math.round(
@@ -38,7 +36,6 @@ const TodosStatus = props => {
 };
 
 const mapStateToProps = state => ({
-  remaining: getRemainingState(state),
   completed: getCompletedState(state),
   total: getTotalState(state)
 });

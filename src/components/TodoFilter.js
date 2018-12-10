@@ -2,9 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { setFilter } from "../actions";
 
-const TodoFilter = ({ name, className, active, onClick }) => (
-  <div onClick={onClick} className={`${className} ${active ? "active" : ""}`}>
-    {name}
+const TodoFilter = props => (
+  <div
+    onClick={props.onClick}
+    className={`${props.className} ${props.active ? "active" : ""}`}
+  >
+    {props.name} <span className="todo-filter__count">({props.count})</span>
   </div>
 );
 const mapStateToProps = (state, props) => ({
