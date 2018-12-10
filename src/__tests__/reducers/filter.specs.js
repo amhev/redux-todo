@@ -1,6 +1,6 @@
 import filterReducer from "../../reducers/filter";
 
-describe("Default State", () => {
+describe("filter reducer Default State", () => {
   test("Default state is correct", () => {
     const action = { type: "SOME_ACTION" };
     const initialState = "ALL";
@@ -9,47 +9,39 @@ describe("Default State", () => {
   });
 });
 
-describe("SET_FILTER", () => {
-  test("Set Important Filter return the correct state", () => {
+describe("filter reducer", () => {
+  test("should handle SET_FILTER IMPORTANT", () => {
     const action = { type: "SET_FILTER", filter: "IMPORTANT" };
-    const state = "IMPORTANT";
+    const expectedState = "IMPORTANT";
 
-    expect(filterReducer(undefined, action)).toEqual(state);
+    expect(filterReducer(undefined, action)).toEqual(expectedState);
   });
-});
 
-describe("SET_FILTER", () => {
-  test("Set Starred Filter return the correct state", () => {
+  test("should handle SET_FILTER STARRED", () => {
     const action = { type: "SET_FILTER", filter: "STARRED" };
-    const state = "STARRED";
+    const expectedState = "STARRED";
 
-    expect(filterReducer(undefined, action)).toEqual(state);
+    expect(filterReducer(undefined, action)).toEqual(expectedState);
   });
-});
 
-describe("SET_FILTER", () => {
-  test("Set Open Filter return the correct state", () => {
+  test("should handle SET_FILTER OPEN", () => {
     const action = { type: "SET_FILTER", filter: "OPEN" };
-    const state = "OPEN";
+    const expectedState = "OPEN";
 
-    expect(filterReducer(undefined, action)).toEqual(state);
+    expect(filterReducer(undefined, action)).toEqual(expectedState);
   });
-});
 
-describe("SET_FILTER", () => {
-  test("Set All Filter return the correct state", () => {
+  test("should handle SET_FILTER ALL", () => {
     const action = { type: "SET_FILTER", filter: "ALL" };
-    const state = "ALL";
+    const expectedState = "ALL";
 
-    expect(filterReducer(undefined, action)).toEqual(state);
+    expect(filterReducer(undefined, action)).toEqual(expectedState);
   });
-});
 
-describe("SET_FILTER", () => {
-  test("Set Completed Filter return the correct state", () => {
+  test("should handle SET_FILTER COMPLETED", () => {
     const action = { type: "SET_FILTER", filter: "COMPLETED" };
-    const state = "COMPLETED";
+    const expectedState = "COMPLETED";
 
-    expect(filterReducer(undefined, action)).toEqual(state);
+    expect(filterReducer(undefined, action)).toEqual(expectedState);
   });
 });

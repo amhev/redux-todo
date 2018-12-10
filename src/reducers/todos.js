@@ -46,13 +46,13 @@ const todos = (state = [], action) => {
 
     case "EDIT_TODO":
       return state.map(todo => {
-        if (action.event.target.value.trim().length === 0) {
+        if (action.value.trim().length === 0) {
           return todo.id === action.id ? { ...todo, editing: false } : todo;
         } else {
           return todo.id === action.id
             ? {
                 ...todo,
-                text: action.event.target.value.trim(),
+                text: action.value.trim(),
                 editing: false
               }
             : todo;

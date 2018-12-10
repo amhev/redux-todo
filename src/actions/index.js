@@ -31,7 +31,7 @@ export const startEditTodo = id => ({
 export const editTodo = (id, event) => ({
   type: "EDIT_TODO",
   id,
-  event
+  value: event.target.value
 });
 
 export const cancelEditTodo = id => ({

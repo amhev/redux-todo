@@ -68,11 +68,11 @@ describe("todos actions", () => {
     const expectedActions = [
       {
         id: 1,
-        event: "e",
+        value: "text",
         type: "EDIT_TODO"
       }
     ];
-    store.dispatch(todosActions.editTodo(1, "e"));
+    store.dispatch(todosActions.editTodo(1, { target: { value: "text" } }));
     expect(store.getActions()).toEqual(expectedActions);
   });
 
