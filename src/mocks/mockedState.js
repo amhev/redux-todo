@@ -29,7 +29,8 @@ module.exports = {
   getState: () => {
     return {
       todos,
-      filter: "All"
+      filter: "All",
+      search: ""
     };
   },
 

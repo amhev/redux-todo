@@ -118,4 +118,15 @@ describe("todos actions", () => {
     store.dispatch(todosActions.setFilter("filter"));
     expect(store.getActions()).toEqual(expectedActions);
   });
+
+  test("Dispatches the correct action and payload for set search", () => {
+    const expectedActions = [
+      {
+        term: "text",
+        type: "SET_SEARCH"
+      }
+    ];
+    store.dispatch(todosActions.setSearch("text"));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });
