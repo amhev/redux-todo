@@ -22,6 +22,7 @@ const TodoSearch = props => {
         <i className="fas fa-search" />
       </span>
       <span
+        title="Clear search"
         className="todo-search__icon clear"
         onClick={() => {
           props.setSearch("");
