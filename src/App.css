@@ -145,12 +145,6 @@
     color: #4AA1D8;
   }
 
-  .list-item-tags {
-    position: absolute;
-    bottom: 0;
-    left: 36px;
-  }
-
   .list-item-tags .list-item-tag {
     display: inline-block;
     height: 5px;

@@ -37,12 +37,14 @@ const Todo = props => {
               <i className="far fa-check-circle" />
             </span>
           )}
-          <TodoTags
-            {...props}
-            onImportantChange={props.onImportantChange}
-            onStarredChange={props.onStarredChange}
-          />
-          <span className="list-item__text">{props.text}</span>
+          <span className="list-item__text">
+            <TodoTags
+              {...props}
+              onImportantChange={props.onImportantChange}
+              onStarredChange={props.onStarredChange}
+            />
+            {props.text}
+          </span>
           <TodoActions
             {...props}
             removeTodo={props.removeTodo}

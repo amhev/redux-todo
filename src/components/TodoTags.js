@@ -7,7 +7,7 @@ const TodoTags = ({
   onImportantChange,
   onStarredChange
 }) => (
-  <div className="list-item-tags">
+  <span className="list-item-tags">
     {important && (
       <span
         title="Important"
@@ -26,7 +26,7 @@ const TodoTags = ({
         <i className="fas fa-star" />
       </span>
     )}
-  </div>
+  </span>
 );
 
 export default TodoTags;

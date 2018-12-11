@@ -16,7 +16,7 @@ describe("ADD_TODO", () => {
     const newState = todosReducer(mockedState.getTodosState(), action);
     const newTodo = newState[newState.length - 1];
 
-    expect(newState).toHaveLength(4);
+    expect(newState).toHaveLength(mockedState.getTodosState().length + 1);
     expect(newTodo.text).toEqual("some_text");
     expect(newTodo.important).toBe(false);
     expect(newTodo.starred).toBe(false);
