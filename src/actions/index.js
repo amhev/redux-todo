@@ -53,6 +53,11 @@ export const setFilter = filter => ({
   filter
 });
 
+export const setSearch = term => ({
+  type: "SET_SEARCH",
+  term
+});
+
 export const Filters = {
   ALL: "ALL",
   COMPLETED: "COMPLETED",

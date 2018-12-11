@@ -17,7 +17,7 @@
   }
 
   .app { 
-    margin: 50px 0 40px 0;
+    margin: 40px 0 40px 0;
     position: relative;
   }
 
@@ -159,6 +159,42 @@
 
   .list-item-tags .list-item-tag.important {
     color: red
+  }
+
+  .todo-search {
+    position: relative;
+    width: 100%;
+    margin: 10px 0 5px 0;
+  }
+
+  .todo-search__icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    opacity: 0.5;
+  }
+
+  .todo-search__icon.search {
+    left: 13px;
+  }
+
+  .todo-search__icon.clear {
+    cursor: pointer;
+    right: 19px;
+  }
+
+  .todo-search__input {
+    width: 100%;
+    padding: 12px 12px 12px 36px;
+    color: #4d4d4d;
+    outline: none;
+    transition: all .1s ease-in-out;
+    border-radius: 9999px;
+    border: 0.125rem solid #f1f3f5;
+  }
+
+  .todo-search__input:focus {
+    border-color: #4AA1D8
   }
 
   .progress-bar {

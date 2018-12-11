@@ -39,15 +39,29 @@ export const getStarredState = createSelector(
 const getTodos = state => {
   switch (state.filter) {
     case Filters.ALL:
-      return state.todos;
+      return state.todos.filter(
+        todo => !state.search || todo.text.includes(state.search)
+      );
     case Filters.COMPLETED:
-      return state.todos.filter(todo => todo.completed);
+      return state.todos.filter(
+        todo =>
+          todo.completed && (!state.search || todo.text.includes(state.search))
+      );
     case Filters.OPEN:
-      return state.todos.filter(todo => !todo.completed);
+      return state.todos.filter(
+        todo =>
+          !todo.completed && (!state.search || todo.text.includes(state.search))
+      );
     case Filters.IMPORTANT:
-      return state.todos.filter(todo => todo.important);
+      return state.todos.filter(
+        todo =>
+          todo.important && (!state.search || todo.text.includes(state.search))
+      );
     case Filters.STARRED:
-      return state.todos.filter(todo => todo.starred);
+      return state.todos.filter(
+        todo =>
+          todo.starred && (!state.search || todo.text.includes(state.search))
+      );
     default:
       return state.todos;
   }
