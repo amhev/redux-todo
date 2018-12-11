@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
   }
@@ -22,6 +23,7 @@
   }
 
   .main {
+    margin-top: 6px;
     background: #fff;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
@@ -174,6 +176,10 @@
     color: #D3D3D3;
   }
 
+  .todo-search__icon.clear:hover {
+    color: #4d4d4d;
+  }
+  
   .todo-search__icon.search {
     left: 13px;
   }
